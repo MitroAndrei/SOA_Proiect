@@ -1,5 +1,5 @@
 # RabbitMQ Proof of Concept in Java Spring
-
+![SOA_Diagram.png](SOA_Diagram.png)
 ---
 
 ## 1. Purpose of the PoC
