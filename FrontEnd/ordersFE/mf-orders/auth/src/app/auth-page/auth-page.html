@@ -1,0 +1,23 @@
+<div class="wrap">
+  <div class="card">
+    <h2>{{ mode === 'login' ? 'Login' : 'Register' }}</h2>
+
+    <form (ngSubmit)="submit()" #f="ngForm">
+      <label>Username</label>
+      <input name="username" [(ngModel)]="username" required />
+
+      <label>Password</label>
+      <input name="password" [(ngModel)]="password" required type="password" />
+
+      <button [disabled]="f.invalid || loading" type="submit">
+        {{ loading ? 'Please wait…' : (mode === 'login' ? 'Login' : 'Create account') }}
+      </button>
+    </form>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
+
+    <a href="" (click)="toggle($event)">
+      {{ mode === 'login' ? 'Need an account? Register' : 'Already have an account? Login' }}
+    </a>
+  </div>
+</div>

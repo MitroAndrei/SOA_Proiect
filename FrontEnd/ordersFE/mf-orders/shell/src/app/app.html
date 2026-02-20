@@ -1,0 +1,18 @@
+<header class="top">
+  <div class="brand">Orders</div>
+
+  <div class="actions" *ngIf="(auth.token$ | async) as token; else loggedOut">
+    <a routerLink="/orders">Orders</a>
+    <a routerLink="/orders/new">New Order</a>
+    <a routerLink="/dashboard">Dashboard</a>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <ng-template #loggedOut>
+    <a routerLink="/auth">Login</a>
+  </ng-template>
+</header>
+
+<main class="main">
+  <router-outlet></router-outlet>
+</main>

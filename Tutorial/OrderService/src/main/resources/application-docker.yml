@@ -1,0 +1,21 @@
+spring:
+ application:
+   name: order-service
+ rabbitmq:
+   host: ${SPRING_RABBITMQ_HOST:rabbitmq}
+   port: ${SPRING_RABBITMQ_PORT:5672}
+   username: ${SPRING_RABBITMQ_USERNAME:guest}
+   password: ${SPRING_RABBITMQ_PASSWORD:guest}
+
+server:
+ port: 8081
+
+rabbitmq:
+ exchange: orders.exchange
+ queue: orders.processing
+ routing-key: order.created
+
+logging:
+ level:
+   com.example: DEBUG
+   org.springframework.amqp: DEBUG

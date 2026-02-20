@@ -1,0 +1,6 @@
+.wrap { display:flex; justify-content:center; align-items:center; min-height:70vh; padding:24px; }
+.card { width: 360px; padding: 20px; border: 1px solid #ddd; border-radius: 12px; }
+form { display:flex; flex-direction:column; gap:10px; margin-top: 12px; }
+input { padding:10px; border-radius:10px; border:1px solid #ccc; }
+button { padding:10px; border-radius:10px; border:0; cursor:pointer; }
+.error { margin-top: 10px; }

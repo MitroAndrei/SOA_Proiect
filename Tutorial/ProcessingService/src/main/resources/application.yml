@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: processing-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual  # Manual acknowledgment
+        prefetch: 1               # Process one message at a time
+        retry:
+          enabled: true
+          initial-interval: 3000  # 3 seconds
+          multiplier: 2           # Exponential backoff
+          max-retries: 3
+  datasource:
+    url: jdbc:postgresql://localhost:5432/orders_db
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+server:
+  port: 8082
+
+rabbitmq:
+  exchange: orders.exchange
+  queue: orders.processing
+  routing-key: order.created

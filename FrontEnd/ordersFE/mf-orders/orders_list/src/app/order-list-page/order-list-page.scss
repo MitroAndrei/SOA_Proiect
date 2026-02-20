@@ -1,0 +1,6 @@
+button { margin: 8px 0 16px; padding: 8px 10px; border-radius:10px; border:1px solid #ddd; background:transparent; cursor:pointer; }
+.list { list-style:none; padding:0; display:flex; flex-direction:column; gap:10px; }
+li { border:1px solid #eee; border-radius:12px; padding:12px; }
+.row { display:flex; justify-content:space-between; gap:12px; }
+.id { font-weight:600; }
+.meta { margin-top: 6px; opacity: 0.9; }

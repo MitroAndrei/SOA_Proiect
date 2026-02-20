@@ -1,0 +1,40 @@
+<h2>New Order</h2>
+
+<form (ngSubmit)="submit()" #f="ngForm" class="form">
+  <label>Product ID</label>
+  <input
+    name="productId"
+    required
+    [ngModel]="productId()"
+    (ngModelChange)="productId.set($event)"
+  />
+
+  <label>Quantity</label>
+  <input
+    name="quantity"
+    required
+    type="number"
+    min="1"
+    [ngModel]="quantity()"
+    (ngModelChange)="quantity.set($event)"
+  />
+
+  <label>Price</label>
+  <input
+    name="price"
+    required
+    type="number"
+    min="0"
+    step="0.01"
+    [ngModel]="price()"
+    (ngModelChange)="price.set($event)"
+  />
+
+  <button type="submit" [disabled]="f.invalid || loading() || !username">
+    {{ loading() ? 'Creating…' : 'Create order' }}
+  </button>
+</form>
+
+<p *ngIf="!username" class="err">You must be logged in.</p>
+<p *ngIf="success()" class="ok">Order created.</p>
+<p *ngIf="error()" class="err">{{ error() }}</p>

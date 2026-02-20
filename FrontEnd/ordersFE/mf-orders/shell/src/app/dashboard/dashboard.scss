@@ -1,0 +1,12 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.left, .right {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+}

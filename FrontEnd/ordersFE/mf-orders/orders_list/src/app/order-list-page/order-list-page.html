@@ -1,0 +1,20 @@
+<h2>My Orders</h2>
+
+<button (click)="reload()" [disabled]="loading()">
+  {{ loading() ? 'Loading…' : 'Refresh' }}
+</button>
+
+<p class="err" *ngIf="error()">{{ error() }}</p>
+
+<ul class="list">
+  <li *ngFor="let o of orders()">
+    <div class="row">
+      <div class="id">#{{ o.orderId }}</div>
+      <div class="status">{{ o.status }}</div>
+    </div>
+    <div class="meta">
+      {{ o.productId }} • qty {{ o.quantity }} • {{ o.totalAmount }}
+    </div>
+    <div class="meta">created: {{ o.createdAt }}</div>
+  </li>
+</ul>
